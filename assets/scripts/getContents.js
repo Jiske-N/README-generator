@@ -55,7 +55,13 @@ const getContents = () => {
             choices: [
                 'Apache License',
                 'GNU General Public License',
-                'MIT',
+                'MIT License',
+                'BSD 2-Clause License',
+                'BSD 3-Clause License',
+                'Creative Commons Legal Code',
+                'Eclipse Public License - v 2.0',
+                ''
+
             ]
         },
     ]);

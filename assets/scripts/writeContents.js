@@ -1,5 +1,11 @@
+const getLicense = require('./getLicense');
+
+const retrieveLicense = (title, license) => {
+    return getLicense(title, license);
+}
+
 // write contents from prompt to .md file
-const writeREADME = ({ title, description, installation, usage, futureDevelopment, credits, contributing, questionsAndFeedback, tests, license }) => `# ${title}
+const writeContents = ({ title, description, installation, usage, futureDevelopment, credits, contributing, questionsAndFeedback, tests, license }) => `# ${title}
 
 ## [The Deployed Page](https://awesome-foursome.github.io/boardgame-bliss/)
 
@@ -52,7 +58,7 @@ ${tests}
 
 ## License
 
-${license}
+${retrieveLicense(title, license)}
     `;
 
-module.exports = writeREADME;
+module.exports = writeContents;
