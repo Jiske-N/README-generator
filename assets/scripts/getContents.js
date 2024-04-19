@@ -10,6 +10,16 @@ const getContents = () => {
         },
         {
             type: 'input',
+            name: 'repoName',
+            message: 'Enter the name of the GitHub repository',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter contact email',
+        },
+        {
+            type: 'input',
             name: 'title',
             message: 'Enter the title of the project.',
         },
@@ -42,11 +52,6 @@ const getContents = () => {
             type: 'input',
             name: 'contributing',
             message: 'Enter contribution instructions.',
-        },
-        {
-            type: 'input',
-            name: 'questionsAndFeedback',
-            message: 'Enter instructions for questions and feedback.',
         },
         {
             type: 'input',

@@ -10,10 +10,10 @@ const retrieveBadge = (license) => {
 }
 
 // write contents from prompt to .md file
-const writeContents = ({ userName, title, description, installation, usage, futureDevelopment, credits, contributing, questionsAndFeedback, tests, license }) => `# ${title}
+const writeContents = ({ userName, repoName, email, title, description, installation, usage, futureDevelopment, credits, contributing, tests, license }) => `# ${title}
 ${retrieveBadge(license)}
 
-## [The Deployed Page](https://awesome-foursome.github.io/boardgame-bliss/)
+[The Deployed Page](https://${userName}.github.io/${repoName}/)
 
 ## The Project
 
@@ -56,7 +56,9 @@ ${contributing}
 
 ## Questions and Feedback
 
-${questionsAndFeedback}
+If you find any issues or have contributions or feedback you can do so by opening an [issue](https://github.com/${userName}/${repoName}/issues) on Github.
+
+Or through [email](${email}).
 
 ## Tests
 
