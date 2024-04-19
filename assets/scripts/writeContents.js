@@ -1,11 +1,17 @@
-const getLicense = require('./getLicense');
+const getLicense = require('./getLicense.js');
+const getBadge = require('./getBadge.js');
 
 const retrieveLicense = (title, license) => {
     return getLicense(title, license);
 }
 
+const retrieveBadge = (license) => {
+    return getBadge(license);
+}
+
 // write contents from prompt to .md file
-const writeContents = ({ title, description, installation, usage, futureDevelopment, credits, contributing, questionsAndFeedback, tests, license }) => `# ${title}
+const writeContents = ({ userName, title, description, installation, usage, futureDevelopment, credits, contributing, questionsAndFeedback, tests, license }) => `# ${title}
+${retrieveBadge(license)}
 
 ## [The Deployed Page](https://awesome-foursome.github.io/boardgame-bliss/)
 
@@ -58,7 +64,7 @@ ${tests}
 
 ## License
 
-${retrieveLicense(title, license)}
+${retrieveLicense(userName, license)}
     `;
 
 module.exports = writeContents;

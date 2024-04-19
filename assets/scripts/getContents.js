@@ -5,6 +5,11 @@ const getContents = () => {
     return inquirer.prompt([
         {
             type: 'input',
+            name: 'userName',
+            message: 'Enter GitHub username. Important that it must be exact!!!',
+        },
+        {
+            type: 'input',
             name: 'title',
             message: 'Enter the title of the project.',
         },
@@ -54,14 +59,10 @@ const getContents = () => {
             message: 'Select a license.',
             choices: [
                 'Apache License',
-                'GNU General Public License',
                 'MIT License',
                 'BSD 2-Clause License',
                 'BSD 3-Clause License',
-                'Creative Commons Legal Code',
-                'Eclipse Public License - v 2.0',
-                ''
-
+                'None'
             ]
         },
     ]);
