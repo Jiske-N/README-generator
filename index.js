@@ -21,7 +21,7 @@ const generateREADME = () => {
         })
 
         // writes
-        .then((contents) => writeFile('README.md', writeContents(contents)))
+        .then((contents) => writeFile('./assets/generatedREADMEs/README.md', writeContents(contents)))
         .then(() => console.log('Successfully generated README'))
         .catch((err) => console.error(err));
 };
