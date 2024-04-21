@@ -1,72 +1,141 @@
 const getLicense = require('./getLicense.js');
 const getBadge = require('./getBadge.js');
 
-const retrieveLicense = (title, license) => {
-    return getLicense(title, license);
-}
-
-const retrieveBadge = (license) => {
-    return getBadge(license);
-}
-
 // write contents from prompt to .md file
-const writeContents = ({ userName, repoName, email, title, description, installation, usage, futureDevelopment, credits, contributing, tests, license }) => `# ${title}
-${retrieveBadge(license)}
+const writeContents = ({ userName, repoName, email, title, description, installation, usage, futureDevelopment, credits, contributing, tests, license }) => {
+    let contents = `# ${title}`;
 
-[The Deployed Page](https://${userName}.github.io/${repoName}/)
+    if (license !== 'None') {
+        contents += `
+${getBadge(license)}`;
+    }
+
+
+    contents += `
+
+[The Deployed Page](https://${userName}.github.io/${repoName}/)`;
+
+    if (description) {
+        contents += `
 
 ## The Project
 
-${description}
+${description}`;
+    }
+
+    contents += `
 
 ## Link & Contents
+`;
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Future Development](#future-development)
-- [Credits](#credits)
-- [Contributing](#contributing)
-- [Questions and Feedback](#questions-and-feedback)
-- [Tests](#tests)
+    if (installation) {
+        contents += `
+- [Installation](#installation)`;
+    }
+
+    if (usage) {
+        contents += `
+- [Usage](#usage)`;
+    }
+
+    if (futureDevelopment) {
+        contents += `
+- [Future Development](#future-development)`;
+    }
+
+    if (credits) {
+        contents += `
+- [Credits](#credits)`;
+    }
+
+    if (contributing) {
+        contents += `
+- [Contributing](#contributing)`;
+    }
+
+    contents += `
+- [Questions and Feedback](#questions-and-feedback)`;
+
+    if (contributing) {
+        contents += `
+- [Tests](#tests)`;
+    }
+
+    contents += `
 - [License](#license)
 
 ## Image
 
-![Picture of the Homepage](./assets/images/homepage-deployment-screenshot.png)
+![Picture of the Homepage](./assets/images/homepage-deployment-screenshot.png)`;
+
+    if (installation) {
+        contents += `
 
 ## Installation
 
-${installation}
+${installation}`;
+    }
+
+    if (usage) {
+        contents += `
 
 ## Usage
 
-${usage}
+${usage}`;
+    }
+
+    if (futureDevelopment) {
+        contents += `
 
 ## Future Development
 
-${futureDevelopment}
+${futureDevelopment}`;
+    }
+
+    if (credits) {
+        contents += `
 
 ## Credits
 
-${credits}
+${credits}`;
+    }
+
+    if (contributing) {
+        contents += `
 
 ## Contributing
 
-${contributing}
+${contributing}`;
+    }
+
+    contents += `
 
 ## Questions and Feedback
 
-If you find any issues or have contributions or feedback you can do so by opening an [issue](https://github.com/${userName}/${repoName}/issues) on Github.
+If you find any issues or have contributions or feedback you can do so by opening an [issue](https://github.com/${userName}/${repoName}/issues) on Github.`;
 
-Or through [email](${email}).
+    if (email) {
+        contents += `
+
+Or through [email](${email}).`;
+    }
+
+
+    if (tests) {
+        contents += `
 
 ## Tests
 
-${tests}
+${tests}`;
+    }
+
+    contents += `
 
 ## License
 
-${retrieveLicense(userName, license)}
-    `;
+${getLicense(userName, license)}`;
+
+    return contents;
+};
 
 module.exports = writeContents;
