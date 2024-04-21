@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const colors = require('colors');
 
 // prompt user for README contents
 const getContents = () => {
@@ -6,62 +7,62 @@ const getContents = () => {
         {
             type: 'input',
             name: 'userName',
-            message: 'Required: Enter GitHub username. Important that it must be exact!!!',
+            message: colors.brightRed('Required: Enter GitHub username. Important that it must be exact!!!'),
         },
         {
             type: 'input',
             name: 'repoName',
-            message: 'Required: Enter the name of the GitHub repository',
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: 'Optional: Enter contact email',
+            message: colors.brightRed('Required: Enter the name of the GitHub repository'),
         },
         {
             type: 'input',
             name: 'title',
-            message: 'Required: Enter the title of the project.',
+            message: colors.brightRed('Required: Enter the title of the project.'),
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: colors.brightGreen('Optional: Enter contact email'),
         },
         {
             type: 'input',
             name: 'description',
-            message: 'Optional: Enter description of functionality.',
+            message: colors.brightGreen('Optional: Enter description of functionality.'),
         },
         {
             type: 'input',
             name: 'installation',
-            message: 'Optional: Enter installation instructions.',
+            message: colors.brightGreen('Optional: Enter installation instructions.'),
         },
         {
             type: 'input',
             name: 'usage',
-            message: 'Optional: Enter usage instructions',
+            message: colors.brightGreen('Optional: Enter usage instructions'),
         },
         {
             type: 'input',
             name: 'futureDevelopment',
-            message: 'Optional: Enter potential future development.',
+            message: colors.brightGreen('Optional: Enter potential future development.'),
         },
         {
             type: 'input',
             name: 'credits',
-            message: 'Optional: Enter credits.',
+            message: colors.brightGreen('Optional: Enter credits.'),
         },
         {
             type: 'input',
             name: 'contributing',
-            message: 'Optional: Enter contribution instructions.',
+            message: colors.brightGreen('Optional: Enter contribution instructions.'),
         },
         {
             type: 'input',
             name: 'tests',
-            message: 'Optional: Enter details on testing.',
+            message: colors.brightGreen('Optional: Enter details on testing.'),
         },
         {
             type: 'list',
             name: 'license',
-            message: 'Required: Select a license.',
+            message: colors.brightRed('Required: Select a license.'),
             choices: [
                 'Apache License',
                 'MIT License',
