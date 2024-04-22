@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const colors = require('colors');
 
 // prompt user for README contents
+// required fields are highlighted red and optional green
 const getContents = () => {
     return inquirer.prompt([
         {

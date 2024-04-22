@@ -2,6 +2,7 @@ const getLicense = require('./getLicense.js');
 const getBadge = require('./getBadge.js');
 
 // write contents from prompt to .md file
+// all if sections will only be added if relevant contents exists
 const writeContents = ({ userName, repoName, email, title, description, installation, usage, futureDevelopment, credits, contributing, tests, license }) => {
     let contents = `# ${title}`;
 
