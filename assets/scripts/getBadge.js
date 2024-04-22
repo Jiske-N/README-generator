@@ -3,6 +3,7 @@ const mitBadge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yell
 const bsd2Badge = "[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)";
 const bsd3Badge = "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
 
+// return image to match chosen license
 const getBadge = (license) => {
     switch (license) {
         case 'Apache License':
